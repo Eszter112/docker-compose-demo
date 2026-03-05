@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  nom-service:
+    build: .              # Ou image: nom-image
+    ports:
+      - "host:container"
+    volumes:
+      - nom-volume:/chemin
+    command: commande     # Optionnel
+
+volumes:
+  nom-volume:            # Déclare les volumes nommés
