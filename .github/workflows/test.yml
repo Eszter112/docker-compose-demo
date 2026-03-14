@@ -22,4 +22,4 @@ jobs:
 
     #etape 3 : lancer les tests dans le container 
     - name: Run Tests
-      run: docker run web oytest -v  
+      run: docker run web pytest -v  
