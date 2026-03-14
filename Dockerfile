@@ -9,4 +9,6 @@ COPY app.py .
 COPY test_app.py .
 EXPOSE 5000
 
+# par default , lance Flask
+#mais on peut override avec "docker run web pytest"
 CMD ["python", "app.py"]
