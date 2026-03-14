@@ -1,14 +1,16 @@
-name: run test
+name: Test Flask App 
 
+#déclance l'action sur chaque push
 on:
   push:
     branches: [ main ]
-
-
+  pull_request:
+    branches: [ main ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
     #etape 1: récupérer le code 
     - name:  Checkout code
@@ -21,4 +23,3 @@ jobs:
     #etape 3 : lancer les tests dans le container 
     - name: Run Tests
       run: docker run web oytest -v  
-
