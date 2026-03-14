@@ -3,6 +3,7 @@ import sqlite3
 import os
 
 app = Flask(__name__)
+os.makedirs("/data", exist_ok=True)
 
 # Chemin de la BDD
 DB_PATH = "/data/messages.db"
