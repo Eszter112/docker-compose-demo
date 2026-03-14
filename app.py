@@ -3,6 +3,8 @@ import sqlite3
 import os
 
 app = Flask(__name__)
+
+# On s'assure que le dossier /data existe dès l'import
 os.makedirs("/data", exist_ok=True)
 
 # Chemin de la BDD
@@ -20,10 +22,14 @@ def init_db():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             content TEXT NOT NULL
         )
-    """
+        """
     )
     conn.commit()
     conn.close()
+
+
+# 🔥 IMPORTANT : on initialise la BDD dès l'import du module
+init_db()
 
 
 @app.route("/")
@@ -40,6 +46,7 @@ def write():
     conn.commit()
     conn.close()
     return f"✅ Message écrit : {msg}"
+
 
 @app.route("/read")
 def read():
